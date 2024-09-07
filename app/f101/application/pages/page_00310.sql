@@ -1,0 +1,204 @@
+prompt --application/pages/page_00310
+begin
+--   Manifest
+--     PAGE: 00310
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.1'
+,p_default_workspace_id=>7477392115214474
+,p_default_application_id=>101
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_RENTASTUFFDEV'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>310
+,p_name=>'Rental_form'
+,p_alias=>'RENTAL-FORM'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Rental_form'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(8800693417480033)
+,p_plug_name=>'Rent'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(8005446572738272)
+,p_plug_display_sequence=>30
+,p_query_type=>'TABLE'
+,p_query_table=>'RAS_RENTALS'
+,p_include_rowid_column=>false
+,p_is_editable=>false
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(8801863796480045)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_button_name=>'Rent_device'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(8079066745738496)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Rent'
+,p_button_position=>'CREATE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(8800884899480035)
+,p_name=>'P310_REN_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_primary_key=>true
+,p_is_query_only=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_item_source_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_source=>'REN_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(8800941205480036)
+,p_name=>'P310_REN_DEV_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_item_source_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_source=>'REN_DEV_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(8801071527480037)
+,p_name=>'P310_REN_U_ID'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_item_source_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_source=>'REN_U_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(8801192774480038)
+,p_name=>'P310_REN_START_DATE'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_item_source_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_prompt=>'Start Date'
+,p_source=>'REN_START_DATE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(8076595015738488)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(8801293836480039)
+,p_name=>'P310_CTRL_PERIOD'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_item_source_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_prompt=>'Period'
+,p_source=>'REN_END_DATE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(8076595015738488)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(8801393035480040)
+,p_name=>'P310_REN_TOTAL_COST'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_item_source_plug_id=>wwv_flow_imp.id(8800693417480033)
+,p_prompt=>'Total Cost'
+,p_source=>'REN_TOTAL_COST'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_field_template=>wwv_flow_imp.id(8076595015738488)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'VALUE'
+,p_attribute_04=>'Y'
+,p_attribute_05=>'PLAIN'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(9166599225355009)
+,p_name=>'P310_AVAILABILITY'
+,p_item_sequence=>20
+,p_display_as=>'NATIVE_HIDDEN'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8800750486480034)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(8800693417480033)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Rental_form'
+,p_internal_uid=>8800750486480034
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8801974554480046)
+,p_process_sequence=>10
+,p_process_point=>'ON_SUBMIT_BEFORE_COMPUTATION'
+,p_region_id=>wwv_flow_imp.id(8800693417480033)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Form_DML_Rent'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(8801863796480045)
+,p_internal_uid=>8801974554480046
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(8802180417480048)
+,p_process_sequence=>20
+,p_process_point=>'ON_SUBMIT_BEFORE_COMPUTATION'
+,p_region_id=>wwv_flow_imp.id(8800693417480033)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Update dev status'
+,p_attribute_01=>'PLSQL_CODE'
+,p_attribute_04=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  update ras_devices',
+'    set dev_availability_status = ''NA''',
+'    where dev_id = :P310_REN_DEV_ID;',
+'end;'))
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_imp.id(8801863796480045)
+,p_internal_uid=>8802180417480048
+);
+wwv_flow_imp.component_end;
+end;
+/

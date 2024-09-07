@@ -1,0 +1,4 @@
+dodać stronę do dodawania urządzeń dialog
+na stronie home jeżeli mamy jakieś urządzenia ukryć region empty storage
+na stronie home jeżeli nie mamy urządeń ukryć region storage
+na stronie home jeżeli nie mamy nic wynajęte ukryć region rented_devices
