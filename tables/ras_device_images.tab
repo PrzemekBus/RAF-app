@@ -3,8 +3,8 @@ create table ras_device_images (
   di_dev_id number not null, 
   di_url varchar2(255) not null, 
   di_upload_date date default sysdate,
-  di_created      date not null,
-  di_created_by   varchar2(255) not null,
+  di_created      date not null default sysdate,
+  di_created_by   varchar2(255) not null default user,
   di_updated_by   varchar2(255),
   di_updated      date 
 );
