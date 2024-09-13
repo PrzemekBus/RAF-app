@@ -7,8 +7,8 @@ create table ras_devices (
   dev_rental_price number(10, 2) not null,
   dev_availability_status varchar2(20) default 'available', 
   dev_rental_period varchar2(10) default '1d',
-  dev_created      date not null,
-  dev_created_by   varchar2(255) not null,
+  dev_created      date not null default sysdate,
+  dev_created_by   varchar2(255) not null default user,
   dev_updated_by   varchar2(255),
   dev_updated      date,  
   constraint fk_device_user foreign key (dev_u_id) references ras_users(u_id) on delete cascade
