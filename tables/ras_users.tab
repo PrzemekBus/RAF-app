@@ -5,8 +5,8 @@ create table ras_users(
   u_email        varchar2(100) unique not null,
   u_type         varchar2(5)   not null,
   u_usr_id       number        unique,
-  u_created      date not null,
-  u_created_by   varchar2(255) not null,
+  u_created      date not null default sysdate,
+  u_created_by   varchar2(255) not null default user,
   u_updated_by   varchar2(255),
   u_updated      date
 );
