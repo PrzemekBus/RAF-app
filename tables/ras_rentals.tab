@@ -4,14 +4,15 @@ create table ras_rentals (
   ren_u_id         number not null,
   ren_start_date   date not null,
   ren_end_date     date,
-  ren_total_cost   number(10, 2),
+  ren_total_cost   number(12, 2),
   ren_created      date default sysdate not null,
   ren_created_by   varchar2(255) default user not null,
   ren_updated_by   varchar2(255),
   ren_updated      date,
   primary key (ren_id),
-  constraint fk_rental_device foreign key (ren_dev_id) references ras_devices(dev_id) on delete cascade,
-  constraint fk_rental_user_renter foreign key (ren_u_id) references ras_users(u_id) on delete cascade
+  constraint fk_rental_device foreign key (ren_dev_id) references ras_devices(dev_id) on delete set null,
+  constraint fk_rental_user_renter foreign key (ren_u_id) references ras_users(u_id) on delete cascade,
+  constraint chk_end_date check (ren_end_date >= ren_start_date)
 );
 
 comment on table ras_rentals is 'table storing information about device rentals';
