@@ -1,8 +1,8 @@
 create table ras_device_images (
-  di_id number generated always as identity,
-  di_dev_id number not null, 
-  di_url varchar2(255) not null, 
-  di_upload_date date default sysdate,
+  di_id           number generated always as identity,
+  di_dev_id       number not null, 
+  di_url          varchar2(255) not null, 
+  di_upload_date  date default sysdate,
   di_created      date default sysdate not null,
   di_created_by   varchar2(255) default user not null,
   di_updated_by   varchar2(255),
